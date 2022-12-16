@@ -4,12 +4,10 @@
 >This was my final project for conclude the CS50 Introduction to Computer Sciense course.
 >CS, python, flask, flask web framework, web development, CS50, html, css, bootstrap, javascript, mysql
 ## Features
-- [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
-- [Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/index.html)
 
 I've used Flask web framework based in Python
-its was necessary flask-sqlalchemy for manage SQL database with sqlite and flask-wtf for upload files and forms extensions
+it was necessary to flask for managing SQL database with sqlite3
 
 ## Explaining the project and the database
 My final project is a website that allow the user register for an online bonsai strore and
@@ -27,7 +25,9 @@ I needed five tables for my database:
 - Second, table transactions. I put id, user_id, address, mobile, description, time, totalprice.  Notice that here user_id must be a foreign key.
 
 - Three, table products, this table is for storing products, prices, description and link for the image
+
 - Four , table messages, this table stores the messages received by the customers to contact the admin
+
 - five , table cart. this stores user_id, product_id, quantity and price of product to show in the cart
 
 ### example for handing database in app.py
@@ -93,33 +93,9 @@ def checkout():
         return render_template('checkout.html', products = products, total = total)
 ```
 
-Validations for username, password, etc:
-
-![Validation gif](Screenshots/validation.gif)
-## Pictures
-- Login and Adopt page
-
-| Login | Adopt |
-| :---: | :---: |
-| <img src="Screenshots/img1.png" width="400">  | <img src="Screenshots/img3adopt.png" width="400">|
-
-- Homepage and Responsive show case
-
-| Homepage | Responsive Web |
-| :---: | :---: |
-| <img src="Screenshots/img4home.png" width="400"> | <img src="Screenshots/responsive.gif" width = "400">
+Total code and templates are available above
 
 
-## Demonstration on youtube
-For the CS50 final project you have to make a video showning your project,
-[My Final Project presentation](https://youtu.be/qjqo9uL2eAc)
-
-## Documentation
-https://flask.palletsprojects.com/en/1.1.x/
-
-https://flask-sqlalchemy.palletsprojects.com/en/2.x/
-
-https://flask-wtf.readthedocs.io/en/stable/form.html#module-flask_wtf.file
 
 ## About CS50
 CS50 is a openware course from Havard University and taught by David J. Malan
