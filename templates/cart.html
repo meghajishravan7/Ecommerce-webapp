@@ -1,0 +1,26 @@
+{% extends 'layout.html'%} {% block title %}Shopping{% endblock %} {% block main
+%}
+
+<div class="row container-fluid">
+  <form action="/deletecart" method="POST">
+    <button class="col btn btn-warning" type="submit">Delete Cart</button>
+  </form>
+</div>
+<div class="row container-fluid">
+  {% for product in products %}
+  <div class="card col-3 my-2 container-fluid">
+    <img class="card-img-top cropped" src={{ product['imglink'] }} alt="product
+    image" />
+    <h4 class="card-title">{{product['name']}}</h4>
+    <p class="card-text">{{product['about']}}</p>
+    <a class="nav-link">Rs.{{product['price']}}</a>
+    <button class="btn btn-success">Quantity = {{ product['quantity']}}</button>
+  </div>
+  {% endfor %}
+</div>
+<div class="row container-fluid m-3">
+  <h1>Total price: Rs.{{total}}</h1>
+  <a class="btn btn-warning" href="/checkout">Proceed to checkout</a>
+</div>
+
+{% endblock %}

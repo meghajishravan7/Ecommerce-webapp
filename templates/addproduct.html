@@ -1,0 +1,19 @@
+{% extends 'layout.html'%} {% block title %}add product{% endblock %} {% block main
+    %}
+    <form action="/addproduct" method="POST">
+        <input autocomplete="off" autofocus class="form-control mb-3 mx-auto w-auto" name="name" placeholder="Product name" type="text">
+        <input autocomplete="off" class="form-control mx-auto mb-3 w-auto" name="about" placeholder="product description" type="text">
+        <input autocomplete="off" class="form-control mx-auto mb-3 w-auto" name="price" placeholder="Price" type="number">
+        <input autocomplete="off" class="form-control mb-3 mx-auto w-auto" name="imglink" placeholder="link of image" type="text">
+        <div class="mb-3 w-auto mx-auto">
+            <select name="type" type="text">
+                <option disabled>type of product</option>
+                <option>plant</option>
+                <option>acc</option>
+                <option>pot</option>
+                <option>soil</option>
+            </select>
+        </div>
+        <button class="btn btn-success" type="submit">Add product</button>
+    </form>
+    {% endblock%}

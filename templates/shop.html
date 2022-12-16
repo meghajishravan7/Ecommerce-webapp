@@ -1,0 +1,29 @@
+{% extends 'layout.html'%} {% block title %}Shopping{% endblock %} {% block main
+%}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="alert alert-success">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<div class="row container-fluid">
+  {% for product in products %}
+  <div class="card col-3 my-2 container-fluid">
+    <img class="card-img-top cropped" src={{ product['imglink'] }} alt="product
+    image" />
+    <h4 class="card-title">{{product['name']}}</h4>
+    <p class="card-text">{{product['about']}}</p>
+    <a class="nav-link">Rs.{{product['price']}}</a>
+    <form action="/cart" method="POST">
+      <div class='row'>
+        <input autocomplete="off" class="col form-control m-auto wx-auto" name="quantity" placeholder="Quantity" type="number" min="1">
+        <button class=" col btn btn-success" type="submit" name="product_id" value={{product['id']}} type="number">Add to cart</button>
+      </div>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

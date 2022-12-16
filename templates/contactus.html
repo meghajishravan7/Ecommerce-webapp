@@ -1,0 +1,9 @@
+{% extends 'layout.html'%} {% block title %}Bonsai House{% endblock %}
+{% block main %}
+<form action="/contactus" method="POST">
+    <input autocomplete="off" class="form-control mx-auto mb-3 w-auto" name="email" placeholder="Enter your email" type="text">
+    <textarea autocomplete="off" class="form-control mx-auto mb-3 w-auto" rows="5" name="message" placeholder="Enter your message" type="text"></textarea>
+    <button class="btn btn-success" type="submit">Send Message</button>
+</form>
+
+{% endblock %}

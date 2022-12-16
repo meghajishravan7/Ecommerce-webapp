@@ -1,0 +1,21 @@
+{% extends "layout.html"%} {% block title%} Messages {% endblock%} {% block main%}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for message in messages %}
+    <tr>
+      <td>{{ message["email"] }}</td>
+      <td>{{ message["message"] }}</td>
+      <td>{{ message["time"] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{%endblock%}

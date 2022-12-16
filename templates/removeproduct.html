@@ -1,0 +1,20 @@
+{% extends 'layout.html'%} {% block title %}remove product{% endblock %} {% block main
+    %}
+    <form action="/removeproduct" method="POST">
+        <input autocomplete="off" autofocus class="form-control mb-3 mx-auto w-25" name="product_id" placeholder="Enter id of product to be removed" type="number">
+        <button class="btn btn-success" type="submit">Remove</button>
+    </form>
+
+    <div class="row container-fluid">
+      {% for product in products %}
+      <div class="card col-3 my-2 container-fluid">
+        <img class="card-img-top cropped" src={{ product['imglink'] }} alt="product
+        image" />
+        <h4 class="card-title">{{product['name']}}</h4>
+        <p class="card-text">{{product['about']}}</p>
+        <a class="nav-link">Rs.{{product['price']}}</a>
+        <button class="btn btn-success">product id = {{ product['id']}}</button>
+      </div>
+      {% endfor %}
+    </div>
+    {% endblock %}

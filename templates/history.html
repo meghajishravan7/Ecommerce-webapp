@@ -1,0 +1,23 @@
+{% extends "layout.html"%} {% block title%} Messages {% endblock%} {% block main%}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Mobile</th>
+      <th>Address</th>
+      <th>Order Amount</th>
+      <th>Date/time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for order in orders %}
+    <tr>
+      <td>{{ order["mobile"] }}</td>
+      <td>{{ order["address"] }}</td>
+      <td>{{ order["total"] }}</td>
+      <td>{{ order["time"] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{%endblock%}

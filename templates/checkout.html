@@ -1,0 +1,53 @@
+{% extends 'layout.html'%} {% block title %}Shopping{% endblock %} {% block main
+%}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for product in products %}
+      <tr>
+        <td>{{ product["name"] }}</td>
+        <td>{{ product["quantity"] }}</td>
+        <td>Rs.{{ product["price"] }}</td>
+        <td>Rs.{{ product["quantity"]*product["price"] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+        <td colspan="3"></td>
+        <td><strong>Rs.{{ total }}</strong></td>
+    </tfoot>
+  </table>
+  <div class="row">
+    <div class="col"> Select payment type </div>
+    <div class="col mb-3 w-auto mx-auto">
+        <select name="payment type" type="text">
+            <option>Pay on delivery</option>
+            <option disabled>Net banking</option>
+            <option disabled>UPI</option>
+            <option disabled>Debit/Credit card</option>
+            <option disabled>Paypal</option>
+        </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">Expected delivery time</div>
+    <div class="col">2-5 days</div>
+  </div>
+
+  <div class="alert alert-success">
+    <strong>Info!</strong> Online payment coming soon.
+  </div>
+<form action="/checkout" method="POST">
+    <input autocomplete="off" autofocus class="form-control mb-3 mx-auto w-auto" name="mobile" placeholder="Enter your Mobile no." type="text">
+    <input autocomplete="off" rows="3" class="form-control mx-auto mb-3 w-50" name="address" placeholder="Enter your full address" type="text">
+    <button class="btn btn-warning" type="submit">Place Order</button>
+</form>
+{% endblock %}
