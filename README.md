@@ -1,7 +1,7 @@
 # Bonsai House
 
 ## CS50
->This was my final project for conclude the CS50 Introduction to Computer Sciense course.
+>This was my final project to conclude the CS50 Introduction to Computer Sciense course.
 >CS, python, flask, flask web framework, web development, CS50, html, css, bootstrap, javascript, mysql
 ## Features
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
