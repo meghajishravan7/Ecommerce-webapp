@@ -15,7 +15,7 @@ get home delivery of plants and tools for gardening purpose. The user can also c
 
 All information about users, cases and selected cases for each people are stored in userdata.db.
 
-I used sql extension for connect the database to application and sqlite3 to manager her.
+I used sql extension for connect the database to application and sqlite3 to manage her.
 
 ###  sqlite3:
 I needed five tables for my database:
@@ -30,7 +30,7 @@ I needed five tables for my database:
 
 - five , table cart. this stores user_id, product_id, quantity and price of product to show in the cart
 
-### example for handing database in app.py
+### example for handling database in app.py
 
 ```python
 @app.route('/cart', methods=['GET','POST'])
@@ -57,40 +57,6 @@ def cart():
         for product in products:
             total+= product['quantity']*product['price']
         return render_template('cart.html', products = products, total = total)
-```
-
-another example
-
-```python
-@app.route('/checkout',methods = ['GET','POST'])
-@login_required
-def checkout():
-    if request.method=='POST':
-        products = db.execute('select * from cart join products on cart.product_id = products.id where user_id=?', session['user_id'])
-        total=0
-        for product in products:
-            total+= product['quantity']*product['price']
-
-        if total ==0:
-            return apology('no items in cart')
-
-        mobile = request.form.get('mobile')
-        address = request.form.get('address')
-
-        if not mobile or not address:
-            return apology('please enter all fields')
-
-        db.execute('insert into transactions (user_id,mobile,address,total) values(?,?,?,?)', session['user_id'], mobile, address, total)
-        db.execute('delete from cart where user_id=?',session['user_id'])
-
-        return success('Your order has been successfully placed')
-
-    else:
-        products = db.execute('select * from cart join products on cart.product_id = products.id where user_id=?', session['user_id'])
-        total=0
-        for product in products:
-            total+= product['quantity']*product['price']
-        return render_template('checkout.html', products = products, total = total)
 ```
 
 Total code and templates are available above
